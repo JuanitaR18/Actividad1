@@ -2,6 +2,41 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+class Usuario {
+    String nombre, id;
+
+    public Usuario(String nombre, String id) {
+        this.nombre = nombre;
+        this.id = id;
+    }
+}
+
+class Trabajador {
+    String nombre;
+
+    public Trabajador(String nombre) {
+        this.nombre = nombre;
+    }
+}
+
+class Caso {
+    static int contador = 1;
+    int id;
+    String estado;
+    Usuario usuario;
+    Trabajador trabajador;
+
+    public Caso(Usuario usuario, Trabajador trabajador) {
+        this.id = contador++;
+        this.estado = "Abierto";
+        this.usuario = usuario;
+        this.trabajador = trabajador;
+        System.out.println("Caso creado con ID: " + this.id);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         List<Caso> casos = new ArrayList<>();
 
@@ -58,6 +93,5 @@ import java.util.Scanner;
                 System.out.println("Opción inválida.");
             }
         }
-        entrada.close();
     }
 }
